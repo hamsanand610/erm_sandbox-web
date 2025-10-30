@@ -1,0 +1,896 @@
+/*
+========================================
+ERM SANdbOX Professional Stylesheet
+Enhanced Version with Animations
+Theme: Dark Blue & Vibrant Yellow
+========================================
+*/
+
+/* -------------------
+   1. Global Styles & Variables
+   ------------------- */
+:root {
+    --primary-navy: #1e3a5f;
+    --primary-dark: #1a2942;
+    --primary-orange: #f59e0b;
+    --primary-orange-dark: #d97706;
+    --primary-yellow: #fbbf24;
+    --accent-cyan: #06b6d4;
+    --light-gray: #e5e7eb;
+    --medium-gray: #9ca3af;
+    --dark-gray: #4b5563;
+    --text-gray: #6b7280;
+    --color-primary-dark: #162F60;
+    --color-accent-yellow: #FCDA5D;
+    --color-accent-orange: #f08c2a;
+    --color-light-bg: #F4F6F8;
+    --color-white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+section {
+    padding: 6rem 0;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* -------------------
+   2. Header & Enhanced Navigation
+   ------------------- */
+.header-main {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-text-erm {
+    font-size: 14px;
+    color: #9ca3af;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo-text-sandbox {
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-text-sandbox .highlight {
+    color: var(--primary-orange);
+}
+
+/* Enhanced Nav Pills with Animations */
+.nav-pills-custom {
+    gap: 0.5rem;
+}
+
+.nav-pills-custom .nav-link {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-pills-custom .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+    transition: width 0.4s ease;
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.nav-pills-custom .nav-link:hover::before,
+.nav-pills-custom .nav-link.active::before {
+    width: 100%;
+}
+
+.nav-pills-custom .nav-link:hover,
+.nav-pills-custom .nav-link.active {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.nav-pills-custom .nav-link:hover .nav-icon {
+    transform: scale(1.2);
+}
+
+/* Enhanced Login Button */
+.login-btn {
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+}
+
+.login-icon {
+    font-style: normal;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.login-btn:hover .login-icon {
+    transform: translateX(5px);
+}
+
+/* -------------------
+   3. Hero Section
+   ------------------- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-orange) 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-title {
+    font-size: 52px;
+    color: var(--primary-navy);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-tagline {
+    font-size: 26px;
+    color: var(--primary-navy);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--primary-navy);
+    color: var(--primary-yellow);
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(30, 58, 95, 0.3);
+}
+
+.demo-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(30, 58, 95, 0.4);
+    color: var(--primary-yellow);
+}
+
+.btn-icon {
+    font-style: normal;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.demo-btn:hover .btn-icon {
+    transform: translateX(8px);
+}
+
+.acknowledgment {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.acknowledgment span {
+    color: var(--primary-navy);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gartner-logo {
+    color: var(--accent-cyan);
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.award-badge {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.award-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.award-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.award-text {
+    color: var(--primary-navy);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* -------------------
+   4. Topics Bar
+   ------------------- */
+.topics-bar {
+    background: var(--primary-navy);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.topics-bar p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* -------------------
+   5. AHA Moments Section
+   ------------------- */
+.aha-moments {
+    background: var(--light-gray);
+    padding: 80px 0;
+}
+
+.aha-title {
+    text-align: center;
+    font-size: 48px;
+    color: var(--primary-navy);
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 60px;
+}
+
+.aha-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aha-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.aha-card-header {
+    background: var(--primary-yellow);
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--primary-navy);
+    text-align: center;
+}
+
+.aha-card-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.aha-card:hover .aha-card-image {
+    transform: scale(1.05);
+}
+
+.aha-card-content {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.aha-card-content p {
+    color: var(--primary-navy);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* -------------------
+   6. Pricing Section
+   ------------------- */
+.pricing {
+    background: var(--light-gray);
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    color: var(--primary-navy);
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--primary-orange);
+    margin: 20px auto 0;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.pricing-card-featured {
+    border: 3px solid var(--primary-orange);
+    transform: scale(1.05);
+}
+
+.pricing-card-featured:hover {
+    transform: scale(1.08) translateY(-10px);
+}
+
+.pricing-card .card-header {
+    background: var(--light-gray);
+    padding: 30px;
+    text-align: center;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.pricing-card-featured .card-header {
+    background: var(--primary-navy);
+    color: white;
+    border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 0;
+}
+
+.pricing-card-featured .card-title {
+    color: white;
+}
+
+.pricing-card .card-body {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 15px;
+}
+
+.card-description {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.more-link {
+    color: var(--text-gray);
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.more-link:hover {
+    color: var(--primary-orange);
+}
+
+.price {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin: 20px 0;
+}
+
+.price-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--medium-gray);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.pricing-card .card-footer {
+    padding: 30px;
+    background: transparent;
+    border-top: none;
+}
+
+.subscribe-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--primary-orange);
+    background: white;
+    color: var(--primary-orange);
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.subscribe-btn:hover {
+    background: var(--primary-orange);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+}
+
+.pricing-card-featured .subscribe-btn {
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+}
+
+.pricing-card-featured .subscribe-btn:hover {
+    background: var(--primary-orange-dark);
+}
+
+/* -------------------
+   7. Announcements Section
+   ------------------- */
+.announcements {
+    background: white;
+    padding: 80px 0;
+}
+
+.announcement-item {
+    background: #f8f9fa;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.announcement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.announcement-item h3 {
+    color: var(--text-gray);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.announcement-item p {
+    color: var(--dark-gray);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.announcement-large {
+    background: #f3f4f6;
+    padding: 50px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.announcement-large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.announcement-large h3 {
+    color: var(--text-gray);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.announcement-large h4 {
+    color: var(--primary-navy);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.announcement-large p {
+    color: var(--dark-gray);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* -------------------
+   8. Enhanced Footer
+   ------------------- */
+.footer-main {
+    background: var(--primary-navy);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-tagline {
+    color: var(--medium-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-navy);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+    background: var(--primary-orange);
+    color: white;
+}
+
+.footer-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--medium-gray);
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--primary-orange);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    margin-top: 40px;
+    color: var(--medium-gray);
+    font-size: 14px;
+}
+
+.footer-link {
+    color: var(--medium-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-orange);
+}
+
+/* -------------------
+   9. Responsive Design
+   ------------------- */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-tagline {
+        font-size: 22px;
+    }
+
+    .pricing-card-featured {
+        transform: scale(1);
+    }
+
+    .nav-pills-custom .nav-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 14px;
+    }
+
+    .nav-icon {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-tagline {
+        font-size: 18px;
+    }
+
+    .demo-btn {
+        font-size: 18px;
+        padding: 0.875rem 2.5rem;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .aha-title {
+        font-size: 36px;
+    }
+
+    .award-badge {
+        padding: 20px 30px;
+    }
+
+    .award-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .award-text {
+        font-size: 18px;
+    }
+
+    .nav-pills-custom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-pills-custom .nav-link {
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .login-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .navbar-collapse {
+        margin-top: 1rem;
+    }
+
+    .pricing-card-featured {
+        transform: scale(1);
+    }
+
+    .pricing-card-featured:hover {
+        transform: scale(1) translateY(-10px);
+    }
+
+    .announcements,
+    .aha-moments,
+    .pricing {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-tagline {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .aha-title {
+        font-size: 28px;
+    }
+
+    .announcement-item,
+    .announcement-large {
+        padding: 30px 20px;
+    }
+
+    .pricing-card .card-body,
+    .pricing-card .card-footer {
+        padding: 20px;
+    }
+
+    .price {
+        font-size: 36px;
+    }
+
+    .logo-text-erm {
+        font-size: 12px;
+    }
+
+    .logo-text-sandbox {
+        font-size: 20px;
+    }
+}
+
+/* -------------------
+   10. Scroll Animations
+   ------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.announcement-item,
+.announcement-large,
+.pricing-card,
+.aha-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Loading States */
+.pricing-card,
+.aha-card {
+    will-change: transform;
+}
+
+/* Focus Styles for Accessibility */
+a:focus,
+button:focus {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 3px;
+}
+
+/* Navbar shadow enhancement on scroll */
+.header-main.scrolled {
+    box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+}
