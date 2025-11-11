@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARAS - Interactive Training (SIMCOM)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://gceteam.simbcm.com/assets/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Colors from style.css / style2.css */
+      :root {
+        --primary-navy: #1e3a5f;
+        --primary-dark: #1a2942;
+        --primary-orange: #f59e0b;
+        --primary-orange-dark: #d97706;
+        --primary-yellow: #fbbf24;
+        --light-gray: #e5e7eb;
+        --dark-gray: #4b5563;
+        --text-gray: #6b7280;
+        --color-primary-dark: #162f60;
+        --color-light-bg: #f4f6f8;
+        --white: #fff;
+
+        /* SCENARIO CARD COLORS (From simcom.html source) */
+        --card-content-bg: #3c3c3c; /* Dark gray for content block */
+        --card-tag-color: #f59e0b; /* Orange accent */
+        --card-specialty-bg: #eff778; /* Light Yellow */
+        --card-enduser-bg: #c0c0c0; /* Gray */
+        --card-partner-bg: #bcb45c; /* Olive */
+      }
+
+      /* Global Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: var(--color-light-bg);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        color: var(--color-primary-dark);
+      }
+      section {
+        padding: 80px 0;
+      }
+
+      /* ================= Header ================= */
+.header-main {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+
+.navbar { padding: 1rem 0 }
+
+.logo-container { display: flex; flex-direction: column; line-height: 1.1 }
+
+.logo-text-erm {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.logo-text-sandbox {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text-sandbox .highlight { color: var(--primary-orange) }
+
+.nav-pills-custom { gap: .5rem }
+
+.nav-pills-custom .nav-link {
+  padding: .75rem 1.5rem;
+  border-radius: 50px;
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  font-size: 15px;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pills-custom .nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 50px;
+  transition: width .4s;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  z-index: -1;
+}
+
+.nav-pills-custom .nav-link:hover::before,
+.nav-pills-custom .nav-link.active::before {
+  width: 100%;
+}
+
+.nav-pills-custom .nav-link:hover,
+.nav-pills-custom .nav-link.active {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 18px;
+  transition: transform .3s;
+}
+
+.nav-pills-custom .nav-link:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  color: #fff;
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 4px 15px rgba(245,158,11,.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(245,158,11,.5);
+}
+
+.login-icon {
+  font-style: normal;
+  font-weight: 700;
+  transition: transform .3s;
+}
+
+.login-btn:hover .login-icon {
+  transform: translateX(5px);
+}
+     /* Hero Banner Section */
+.hero-banner {
+    background: linear-gradient(135deg, #dd9f10 0%, #e29c22 100%);
+    color: white;
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent);
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}
+
+.hero-list {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-list li {
+    font-size: 18px;
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: white;
+    font-weight: 500;
+}
+
+.hero-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.scroll-indicator {
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.scroll-indicator .arrow {
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    transform: rotate(-45deg);
+    margin: 10px auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(10px); }
+}
+
+/* Tagline Bar */
+.tagline-bar {
+    background: var(--primary-navy);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.tagline-bar p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+      /* ================= Features Section ================= */
+      .features-section {
+        padding: 60px 0;
+        background: var(--light-gray);
+      }
+      .category-title {
+        font-size: 38px;
+        color: var(--primary-navy);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      .category-title::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: var(--primary-orange);
+        margin: 20px auto 0;
+      }
+
+      .feature-card {
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+      .feature-image-container {
+        text-align: center;
+        padding: 20px 20px 0;
+      }
+      .feature-image {
+        max-width: 50%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .feature-content {
+        padding: 30px;
+        flex-grow: 1;
+      }
+      .feature-content h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-navy);
+      }
+      .feature-content p {
+        color: var(--dark-gray);
+        font-size: 15px;
+      }
+      .subscribe-btn-group {
+        background: var(--primary-navy);
+        color: var(--primary-yellow);
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        transition: all 0.3s ease;
+      }
+      .subscribe-btn-group:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+      }
+
+      /* ================= SCENARIO LIBRARY (Dark Card Style) ================= */
+      .product-library {
+        background: var(--light-gray);
+        padding-top: 40px;
+      }
+      .scenario-group-header {
+        background-color: var(--primary-navy);
+        color: var(--white);
+        padding: 20px 30px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      .scenario-group-header h3 {
+        color: var(--primary-yellow);
+        margin-bottom: 5px;
+        font-size: 28px;
+      }
+      .scenario-group-header ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 15px;
+      }
+      .scenario-group-header li {
+        display: inline-block;
+        margin-right: 15px;
+        color: var(--primary-yellow);
+        font-weight: 600;
+      }
+
+      .scenario-card-item {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .scenario-card-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      }
+      .card-image-placeholder {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* --- Color Correction --- */
+      .scenario-card-item.specialty .card-image-placeholder {
+        background-color: var(--card-specialty-bg);
+      }
+      .scenario-card-item.end-user .card-image-placeholder {
+        background-color: var(--card-enduser-bg);
+      }
+      .scenario-card-item.partner .card-image-placeholder {
+        background-color: var(--card-partner-bg);
+      }
+
+      .card-content {
+        padding: 15px 20px 20px;
+        flex-grow: 1;
+        background: var(--card-content-bg);
+        color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-tag {
+        font-size: 12px;
+        color: var(--card-tag-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .card-title-item {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .card-note-item {
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        flex-grow: 1;
+      }
+      .card-subscription-price {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-bottom: 15px;
+      }
+      .card-action-link {
+        background: var(--primary-orange);
+        color: var(--white);
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      .card-action-link:hover {
+        background: var(--primary-orange-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      /* ================= "About" / Announcements Section ================= */
+      .announcements {
+        background: var(--white);
+        padding: 80px 0;
+      }
+      .announcement-row {
+        margin: 30px 0;
+      }
+      .announcement-large {
+        background: #f8f9fa;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .announcement-large.no-bg {
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+      .announcement-large h3 {
+        color: var(--primary-navy);
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+      .announcement-large p {
+        color: var(--dark-gray);
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 0;
+      }
+      .announcement-media {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+      }
+      .announcement-photo {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+/* ================= Footer ================= */
+.footer-main {
+  background: var(--primary-navy);
+  color: #fff;
+  padding: 60px 0 30px;
+}
+
+.footer-tagline {
+  color: var(--medium-gray);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-navy);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255,255,255,.3);
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0 }
+
+.footer-links li { margin-bottom: 12px }
+
+.footer-links a {
+  color: var(--medium-gray);
+  text-decoration: none;
+  font-size: 15px;
+  transition: .3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary-orange);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 30px;
+  margin-top: 40px;
+  color: var(--medium-gray);
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--medium-gray);
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.footer-link:hover { color: var(--primary-orange) }
+
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .nav-pills-custom {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .nav-pills-custom .nav-link {
+          justify-content: center;
+          padding: 1rem;
+        }
+        .header-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+          margin-top: 1rem;
+        }
+        .demo-btn-top {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: center;
+        }
+        .login-btn {
+          justify-content: center;
+        }
+        .navbar-collapse {
+          margin-top: 1rem;
+        }
+        .hero-title {
+          font-size: 42px;
+        }
+        .hero-tagline {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0;
+        }
+        .hero-title {
+          font-size: 36px;
+        }
+        .hero-tagline {
+          font-size: 20px;
+        }
+        .hero-image-wrapper {
+          margin-top: 2rem;
+        }
+        .announcement-photo {
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= Header ================= -->
+  <header class="header-main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="home.html">
+          <div class="logo-container">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav nav-pills-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="war_games.html"><span>War Games</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="senario_simulator.html"><span>Scenario Simulator</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interative_training.html"><span>Interactive Training</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quotient_test.html"><span>Quotient</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resources"><span>Resources</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#endorsement"><span>Endorsement</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="login-btn d-none d-lg-block">
+          <span>LOGIN</span>
+          <i class="login-icon">→</i>
+        </button>
+      </div>
+    </nav>
+  </header>
+    <main>
+      <section class="hero-banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="hero-title">Hybrid training (Classroom + Games)</h1>
+                        <p class="hero-subtitle">We collabrate with a set of training partners to offer hybrid training sessions.</p>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="hero-list">
+                            <ul>
+                                <li>Knowledge courses</li>
+                                <li>Basic to advanced levels</li>
+                                <li>ISO management system</li>
+                                <li>Certification courses</li>
+                                <li>Thought leadership</li>
+                                <li>Trending topics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="tagline-bar">
+            <div class="container">
+                <p>
+            We guarantee an unprecedented engagement & motivation levels of your
+            participants.</p>
+            </div>
+        </section>
+
+
+      <section class="features-section">
+        <div class="container">
+          <h2 class="category-title">Engage and Educate</h2>
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/calendar5.jpg"
+                    alt="DIY Self Paced"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4>
+                    <strong
+                      >DIY - self paced + Campaign manager for
+                      compliance</strong
+                    >
+                  </h4>
+                  <p>
+                    As organizations may be dealing with large number of
+                    end-users, our campaign managers can facilitate in
+                    follow-ups, reminders, alerts to drive compliance. Users
+                    have the convenience of self-paced participation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/gene.png"
+                    alt="Genie"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4>
+                    <strong>GENIE, our magic-wand is fun to learn with</strong>
+                  </h4>
+                  <p>
+                    End users have a great attraction in the form of GENIE our
+                    magic wand that drives enthusiasm and involvement in the
+                    learning process. GENIE appears when the user wants
+                    assistance.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/4524584-blaze-in-night.jpg"
+                    alt="Scenarios"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4>
+                    <strong
+                      >Scenarios are the best way to engage end-users</strong
+                    >
+                  </h4>
+                  <p>
+                    End -users require a clear, role based understanding of BCM.
+                    Rather than training them on concepts, an effective method
+                    is to let them experience the application of BCM as relevant
+                    to their roles & context.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-library">
+        <div class="container">
+          <h2 class="category-title">Interactive Training Modules</h2>
+
+          <div class="scenario-group-header">
+            <h3>Specialty offerings.</h3>
+            <p>Enjoy unique courses on advanced topics and special interest.</p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item specialty">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Slide35.JPG');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Specialty</span>
+                  <div class="card-title-item">
+                    Bringing agility to BCM - 6 magic formulae
+                  </div>
+                  <div class="card-note-item">
+                    Highly classified content based on intense research and
+                    global experience. Be a trend setter.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item specialty">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Slide35.JPG');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Specialty</span>
+                  <div class="card-title-item">
+                    Essentials of a crisis management software.
+                  </div>
+                  <div class="card-note-item">
+                    Define what automation can do to crisis management. Explore
+                    the application view of crisis management.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item specialty">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Slide34.JPG');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Specialty</span>
+                  <div class="card-title-item">ISO 22361 overview training</div>
+                  <div class="card-note-item">
+                    Learn and adapt practical aspect of ISO 22361. The game you
+                    play will define the ROI moment for crisis teams.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item specialty">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Slide35.JPG');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Specialty</span>
+                  <div class="card-title-item">
+                    Profiling the crisis - When response fails
+                  </div>
+                  <div class="card-note-item">
+                    Do you know crisis decision, communication, response is a
+                    function of type of crisis you deal with.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item specialty">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Specialty courses.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Specialty</span>
+                  <div class="card-title-item">
+                    Resumption nightmare - Where most plans fail?
+                  </div>
+                  <div class="card-note-item">
+                    Do you know resuming services is the biggest cost factor
+                    along with stress and anxiety?
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>End user courses</h3>
+            <p>
+              Skills program for large employee base, employee induction, annual
+              training compliance, and ISO 22301 training requirements.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item end-user">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/communication3.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">End User</span>
+                  <div class="card-title-item">
+                    BCM for all - Awareness course
+                  </div>
+                  <div class="card-note-item">
+                    Covers BCM basics, BC organization, user roles &
+                    expectations during BC incidents etc.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item end-user">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/BI_BURNOUT_MOSS-MAIN-SPOT-1024x575.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">End User</span>
+                  <div class="card-title-item">
+                    Remote working awareness for all
+                  </div>
+                  <div class="card-note-item">
+                    Provides essential awareness, guideline, Do's, Don’ts for
+                    towards a sustainable remote working.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item end-user">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/group2.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">End User</span>
+                  <div class="card-title-item">
+                    Resilience for all - Awareness Course
+                  </div>
+                  <div class="card-note-item">
+                    A brief course about resilience and how each one of us are
+                    integral to organizational resilience.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>Partner courses</h3>
+            <p>
+              List of courses offered by our partner through our collaboration.
+              Enjoy at your convenience.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/sh2.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">BCM awareness course - TLP</div>
+                  <div class="card-note-item">
+                    Client specific course designed by partners. Based on
+                    internal mail given to you, please subscribe.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/communication3.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Client specific course Code A1789
+                  </div>
+                  <div class="card-note-item">
+                    Client specific course designed by partners. Based on
+                    internal mail given to you, please subscribe.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/sh4.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Client specific course Code A1790
+                  </div>
+                  <div class="card-note-item">
+                    Client specific course designed by partners. Based on
+                    internal mail given to you, please subscribe.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/file0001268308785.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Client specific course Code A1791
+                  </div>
+                  <div class="card-note-item">
+                    Client specific course designed by partners. Based on
+                    internal mail given to you, please subscribe.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/sh2.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Client specific course Code A1792
+                  </div>
+                  <div class="card-note-item">
+                    Client specific course designed by partners. Based on
+                    internal mail given to you, please subscribe.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/file0001375000920.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">Embracing Sustainability</div>
+                  <div class="card-note-item">
+                    Embracing Sustainability: Empowering Employees for a Better
+                    Future.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/Gaming series various brands.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    ISACA Learning series - Glossary
+                  </div>
+                  <div class="card-note-item">
+                    Test yourself with the understanding of classified glossary
+                    that is required to pass the exam.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/_1673739b-9464-4bb4-8104-f863ab4b5a92.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Organization resilience training
+                  </div>
+                  <div class="card-note-item">
+                    An interactive course on organization resilience consisting
+                    of classroom session/exercises/games.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item partner">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/simcom/instance/_1673739b-9464-4bb4-8104-f863ab4b5a92.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Partner</span>
+                  <div class="card-title-item">
+                    Organization resilience training (LTIM)
+                  </div>
+                  <div class="card-note-item">
+                    An interactive course on organization resilience consisting
+                    of classroom session/exercises/games.
+                  </div>
+                  <div class="card-subscription-price">Subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="announcements">
+        <div class="container">
+          <div class="announcement-row">
+            <div class="row align-items-center g-5">
+              <div class="col-lg-7">
+                <div class="announcement-large no-bg">
+                  <h3>Are you a trainer or consultant?</h3>
+                  <p>
+                    Integrate our games into your training, enhance your
+                    opportunity to win a deal and retain customers by delivering
+                    the magic. We are experts in abstract modeling. Let us have
+                    your training content, and we will convert them into high
+                    engaging games. We deliver games in DIY, team and
+                    competition mode, saving you cost & time.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="announcement-media">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent2/SIMCOM wideband.jpg"
+                    class="announcement-photo"
+                    alt="SIMCOM for trainers"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-section" id="pricing">
+        <div class="container">
+          <p>
+            We have designed package offer to suit your needs. Economical
+            pricing with annual validity. Please <a href="#pricing">CLICK</a> to
+            know more.
+          </p>
+        </div>
+      </div>
+    </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-5">
+          <div class="logo-container mb-3">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+          <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><span>f</span></a>
+            <a href="#" class="social-icon"><span>G</span></a>
+            <a href="#" class="social-icon"><span>in</span></a>
+          </div>
+        </div>
+
+        
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="war_games.html">War Games</a></li>
+            <li><a href="senario_simulator.html">Scenario Simulator</a></li>
+            <li><a href="interative_training.html">Interactive Training</a></li>
+            <li><a href="quotient_test.html">Quotient</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3 class="footer-title">About Us</h3>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing and Refund policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#terms" class="footer-link">Terms Conditions</a>
+            <span class="mx-2">|</span>
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

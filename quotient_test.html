@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARAS - Quotient Test (Assessments)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://gceteam.simbcm.com/assets/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Colors from style.css / style2.css */
+      :root {
+        --primary-navy: #1e3a5f;
+        --primary-dark: #1a2942;
+        --primary-orange: #f59e0b;
+        --primary-orange-dark: #d97706;
+        --primary-yellow: #fbbf24;
+        --light-gray: #e5e7eb;
+        --dark-gray: #4b5563;
+        --color-light-bg: #f4f6f8;
+        --white: #fff;
+
+        /* SCENARIO CARD COLORS (From assessments.html source) */
+        --card-content-bg: #3c3c3c; /* Dark gray for content block */
+        --card-tag-color: #f59e0b; /* Orange accent */
+        --card-bcm-bg: #bfbfbf; /* Gray */
+        --card-security-bg: #cccef5; /* Light Blue/Purple */
+        --card-scm-bg: #88c7e2; /* Blue */
+        --card-pm-bg: #d5d765; /* Olive */
+        --card-career-bg: #dbe2a7; /* Light Olive */
+        --card-c2c-bg: #ca4e4e; /* Red */
+      }
+
+      /* Global Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: var(--color-light-bg);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        color: var(--color-primary-dark);
+      }
+      section {
+        padding: 80px 0;
+      }
+
+      /* ================= Header ================= */
+.header-main {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+
+.navbar { padding: 1rem 0 }
+
+.logo-container { display: flex; flex-direction: column; line-height: 1.1 }
+
+.logo-text-erm {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.logo-text-sandbox {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text-sandbox .highlight { color: var(--primary-orange) }
+
+.nav-pills-custom { gap: .5rem }
+
+.nav-pills-custom .nav-link {
+  padding: .75rem 1.5rem;
+  border-radius: 50px;
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  font-size: 15px;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pills-custom .nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 50px;
+  transition: width .4s;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  z-index: -1;
+}
+
+.nav-pills-custom .nav-link:hover::before,
+.nav-pills-custom .nav-link.active::before {
+  width: 100%;
+}
+
+.nav-pills-custom .nav-link:hover,
+.nav-pills-custom .nav-link.active {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 18px;
+  transition: transform .3s;
+}
+
+.nav-pills-custom .nav-link:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  color: #fff;
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 4px 15px rgba(245,158,11,.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(245,158,11,.5);
+}
+
+.login-icon {
+  font-style: normal;
+  font-weight: 700;
+  transition: transform .3s;
+}
+
+.login-btn:hover .login-icon {
+  transform: translateX(5px);
+}
+     /* Hero Banner Section */
+.hero-banner {
+    background: linear-gradient(135deg, #d4dfdd 0%, #c1bdb7 100%);
+    color: white;
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent);
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #1e3a5f;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(7, 4, 93, 0.9);
+    margin-bottom: 0;
+}
+
+.hero-list {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-list li {
+    font-size: 18px;
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #1e3a5f;
+    font-weight: 500;
+}
+
+.hero-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.scroll-indicator {
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.scroll-indicator .arrow {
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    transform: rotate(-45deg);
+    margin: 10px auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(10px); }
+}
+
+/* Tagline Bar */
+.tagline-bar {
+    background: var(--primary-navy);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.tagline-bar p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+      /* ================= Features Section ================= */
+      .features-section {
+        padding: 60px 0;
+        background: var(--light-gray);
+      }
+      .category-title {
+        font-size: 38px;
+        color: var(--primary-navy);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      .category-title::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: var(--primary-orange);
+        margin: 20px auto 0;
+      }
+
+      .feature-card {
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+      .feature-image-container {
+        text-align: center;
+        padding: 20px 20px 0;
+      }
+      .feature-image {
+        max-width: 50%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .feature-content {
+        padding: 30px;
+        flex-grow: 1;
+      }
+      .feature-content h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-navy);
+      }
+      .feature-content p {
+        color: var(--dark-gray);
+        font-size: 15px;
+      }
+      .subscribe-btn-group {
+        background: var(--primary-navy);
+        color: var(--primary-yellow);
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        transition: all 0.3s ease;
+      }
+      .subscribe-btn-group:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+      }
+
+      /* ================= SCENARIO LIBRARY (Dark Card Style) ================= */
+      .product-library {
+        background: var(--light-gray);
+        padding-top: 40px;
+      }
+      .scenario-group-header {
+        background-color: var(--primary-navy);
+        color: var(--white);
+        padding: 20px 30px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      .scenario-group-header h3 {
+        color: var(--primary-yellow);
+        margin-bottom: 5px;
+        font-size: 28px;
+      }
+
+      .scenario-card-item {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .scenario-card-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      }
+      .card-image-placeholder {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* --- Color Correction --- */
+      .scenario-card-item.bcm .card-image-placeholder {
+        background-color: var(--card-bcm-bg);
+      }
+      .scenario-card-item.security .card-image-placeholder {
+        background-color: var(--card-security-bg);
+      }
+      .scenario-card-item.scm .card-image-placeholder {
+        background-color: var(--card-scm-bg);
+      }
+      .scenario-card-item.pm .card-image-placeholder {
+        background-color: var(--card-pm-bg);
+      }
+      .scenario-card-item.career .card-image-placeholder {
+        background-color: var(--card-career-bg);
+      }
+      .scenario-card-item.c2c .card-image-placeholder {
+        background-color: var(--card-c2c-bg);
+      }
+
+      .card-content {
+        padding: 15px 20px 20px;
+        flex-grow: 1;
+        background: var(--card-content-bg);
+        color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-tag {
+        font-size: 12px;
+        color: var(--card-tag-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .card-title-item {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .card-note-item {
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        flex-grow: 1;
+      }
+      .card-subscription-price {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-bottom: 15px;
+      }
+      .card-action-link {
+        background: var(--primary-orange);
+        color: var(--white);
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      .card-action-link:hover {
+        background: var(--primary-orange-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      /* ================= Footer ================= */
+.footer-main {
+  background: var(--primary-navy);
+  color: #fff;
+  padding: 60px 0 30px;
+}
+
+.footer-tagline {
+  color: var(--medium-gray);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-navy);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255,255,255,.3);
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0 }
+
+.footer-links li { margin-bottom: 12px }
+
+.footer-links a {
+  color: var(--medium-gray);
+  text-decoration: none;
+  font-size: 15px;
+  transition: .3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary-orange);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 30px;
+  margin-top: 40px;
+  color: var(--medium-gray);
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--medium-gray);
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.footer-link:hover { color: var(--primary-orange) }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .nav-pills-custom {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .nav-pills-custom .nav-link {
+          justify-content: center;
+          padding: 1rem;
+        }
+        .header-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+          margin-top: 1rem;
+        }
+        .demo-btn-top {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: center;
+        }
+        .login-btn {
+          justify-content: center;
+        }
+        .navbar-collapse {
+          margin-top: 1rem;
+        }
+        .hero-title {
+          font-size: 42px;
+        }
+        .hero-tagline {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0;
+        }
+        .hero-title {
+          font-size: 36px;
+        }
+        .hero-tagline {
+          font-size: 20px;
+        }
+        .hero-image-wrapper {
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+   <!-- ================= Header ================= -->
+  <header class="header-main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="home.html">
+          <div class="logo-container">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav nav-pills-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="war_games.html"><span>War Games</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="senario_simulator.html"><span>Scenario Simulator</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interative_training.html"><span>Interactive Training</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quotient_test.html"><span>Quotient</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resources"><span>Resources</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#endorsement"><span>Endorsement</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="login-btn d-none d-lg-block">
+          <span>LOGIN</span>
+          <i class="login-icon">→</i>
+        </button>
+      </div>
+    </nav>
+  </header>
+    <main>
+      <section class="hero-banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="hero-title">Self assessment for team & individuals</h1>
+                        <p class="hero-subtitle">BC quotient | Crisis quotient | Security quotient | SCM quotient | Work quotient</p>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="hero-list">
+                            <ul>
+                                <li>Recruitment assessment</li>
+                                <li>Role & career benchmark</li>
+                                <li>Team role planning</li>
+                                <li>Manager development center</li>
+                                <li>Maturity benchmarks</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="tagline-bar">
+            <div class="container">
+                <p>Team assessment can assist in training need identification and development plan agenda</p>
+            </div>
+        </section>
+
+      <section class="features-section">
+        <div class="container">
+          <h2 class="category-title">Why Use Quotient Tests?</h2>
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/expert2.png"
+                    alt="Assess New Hires"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4><strong>Ask your new BC hire to get assessed</strong></h4>
+                  <p>
+                    If you are recruiting for BCM or resilience positions, our
+                    assessments can help you check the role alignment, career
+                    progression and training needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/report 2.jpg"
+                    alt="Advisory Report"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4>
+                    <strong
+                      >Get advisory report for your BC role suitability & career
+                      planning</strong
+                    >
+                  </h4>
+                  <p>
+                    Our assessments provide real value through insightful
+                    benchmarks to roles, career progression, enhancing team
+                    performance, and team level gaps.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="feature-card">
+                <div class="feature-image-container">
+                  <img
+                    src="https://gceteam.simbcm.com/homecontent1/counting.jpg"
+                    alt="Measure Organization"
+                    class="feature-image"
+                  />
+                </div>
+                <div class="feature-content">
+                  <h4>
+                    <strong>Measure organization level BC strong holds</strong>
+                  </h4>
+                  <p>
+                    Our scenario based BC quotient analysis helps profile the
+                    overall strong holds of BCM. This can be a very important
+                    first step in initiatives towards building resilience
+                    culture.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-library">
+        <div class="container">
+          <h2 class="category-title">Quotient Test Library</h2>
+
+          <div class="scenario-group-header">
+            <h3>Business continuity & Resilience</h3>
+            <p>
+              Get the best out of our self-discovery domain specific strength
+              analysis assessment and benchmarks.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/8FY4_Crisis Culture talent.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">BCM</span>
+                  <div class="card-title-item">
+                    Business continuity process assessment
+                  </div>
+                  <div class="card-note-item">
+                    Take the 20 min BCQ psychometric test that can help you
+                    identify your strong holds and alignment across the 6 BC
+                    process areas.
+                  </div>
+                  <div class="card-subscription-price">USD 25</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/B22M_DEMO.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Internal Audit</span>
+                  <div class="card-title-item">
+                    IA Competency benchmark (Limited demo)
+                  </div>
+                  <div class="card-note-item">
+                    Competencies required to demonstrate the authority,
+                    credibility, and ethical conduct essential for a valuable
+                    internal audit activity.
+                  </div>
+                  <div class="card-subscription-price">USD 10 / INR 850</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/PFRP_execution4.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Crisis Quotient</span>
+                  <div class="card-title-item">
+                    Measure your Crisis Quotient (CQ) - ISO 22361 aligned.
+                  </div>
+                  <div class="card-note-item">
+                    CQ report helps you discover your 5 dominant qualities (out
+                    of 20) while negotiating a crisis situation.
+                  </div>
+                  <div class="card-subscription-price">USD 25</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/N21H__1673739b-9464-4bb4-8104-f863ab4b5a92.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Resilience</span>
+                  <div class="card-title-item">Organizational resilience</div>
+                  <div class="card-note-item">
+                    Assess the organizational resilience maturity across the 6
+                    key attributes of resilience.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/WNQH_org3.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Crisis Quotient</span>
+                  <div class="card-title-item">
+                    Partner Demo: Measure your Crisis Quotient (CQ)
+                  </div>
+                  <div class="card-note-item">
+                    CQ report helps you discover your 5 dominant qualities (out
+                    of 20) while negotiating a crisis situation.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item bcm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/ZCUC__69403ee7-3c1c-4875-af76-7939870c97d7.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Resilience</span>
+                  <div class="card-title-item">Resilience competency</div>
+                  <div class="card-note-item">
+                    Resilience, the capacity to bounce back and thrive in the
+                    face of adversity, is a critical trait. Let us discover
+                    more.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>Security quotient</h3>
+            <p>
+              Get the best out of our self-discovery domain process strength
+              analysis assessment and benchmarks.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item security">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/RZUH__c81233de-b77e-466c-9d2d-48cd4a157421.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Security Talent</span>
+                  <div class="card-title-item">
+                    Measure your Security Talent Quotient (STQ)
+                  </div>
+                  <div class="card-note-item">
+                    In 20 min, get a personalized report & analysis about your
+                    dominant cyber-security strengths, NIST benchmark and AI
+                    powered suggestions.
+                  </div>
+                  <div class="card-subscription-price">USD 5 / INR 250</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item security">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/ZKVV_Presentation1.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Security</span>
+                  <div class="card-title-item">
+                    Red team maturity assessment
+                  </div>
+                  <div class="card-note-item">
+                    Attach case study PDF to Game book at game level or instance
+                    book at instance level with a provision to download for
+                    users?
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>Supply chain management</h3>
+            <p>
+              Get the best out of our self-discovery domain specific strength
+              analysis assessment and benchmarks.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item scm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/2MB4_truck5.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Supply Chain</span>
+                  <div class="card-title-item">
+                    Measure your supply chain quotient
+                  </div>
+                  <div class="card-note-item">
+                    Craft your SC career, by discovering dominant SC strengths.
+                    Get personalized report, benchmark and a certificate. 20 min
+                    assessment.
+                  </div>
+                  <div class="card-subscription-price">USD 50 / INR 4000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item scm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/MRQF_truck7.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Supply Chain</span>
+                  <div class="card-title-item">
+                    Supply chain team manager style
+                  </div>
+                  <div class="card-note-item">
+                    Are you managing a team in supply chain, logistics or
+                    distribution? Find out your team leadership style...10 min,
+                    get a report.
+                  </div>
+                  <div class="card-subscription-price">USD 25</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>Project management</h3>
+            <p>
+              Get the best out of our self-discovery domain specific strength
+              analysis assessment and benchmarks.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item pm">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/PNL7_Announce BOD1.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Project Management</span>
+                  <div class="card-title-item">
+                    Project team leadership style
+                  </div>
+                  <div class="card-note-item">
+                    Why do project teams want to be with you? Are you
+                    charismatic, an expert, or directive?...find out in 10 min.
+                  </div>
+                  <div class="card-subscription-price">USD 25</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>Career & education assessments</h3>
+            <p>
+              These are list of assessments aimed at career and education
+              choices. 20 min online assessment with personalized report.
+            </p>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/QZO8__9e1a9eac-3c3f-4948-bf33-4fbe039e1b81.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Engineering - Alignment of core branch of study
+                  </div>
+                  <div class="card-note-item">
+                    Are you concerned about which branch of engineering is apt
+                    for you?. This exercise offers insights and guideline.
+                  </div>
+                  <div class="card-subscription-price">USD 15 / INR 1000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/G5ZN_DEMO.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Engineering assessment - 20 min online psychometric test
+                  </div>
+                  <div class="card-note-item">
+                    We thank you for participating in the 20 min online
+                    psychometric assessment administered as part of a research
+                    study.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/RSF7__12259998-a0b9-49f0-8a04-4f4742dfef57.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Engineering job / placement / internship guidance
+                  </div>
+                  <div class="card-note-item">
+                    The test guides you to choose the most suitable engineering
+                    job / career choices based on your natural talent &
+                    personality.
+                  </div>
+                  <div class="card-subscription-price">USD 15 / INR 1000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/RDFW__b542a2b3-09c0-4c59-8ce9-bdd297482c7c.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Higher Secondary study stream (UG) alignment
+                  </div>
+                  <div class="card-note-item">
+                    What major subject stream should you consider in higher
+                    secondary? This exercise provides a personalized report.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/GGWP_communication.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Sales & Marketing</span>
+                  <div class="card-title-item">
+                    S&M Communication Style Assessment Test
+                  </div>
+                  <div class="card-note-item">
+                    Discover your dominant communication style and how it
+                    impacts relationships, influence, and leadership.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/PPZ2__7ad558c9-e16a-4d36-a28a-9cf0b6cfde27.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Sales</span>
+                  <div class="card-title-item">Sales Competency Assessment</div>
+                  <div class="card-note-item">
+                    A Self-Assessment, designed to uncover your natural
+                    preferences and strengths across 16 key sales competencies.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/PIXV__345a4486-f32e-4bcb-ac9c-2a1b468d4b1a.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Sales</span>
+                  <div class="card-title-item">Sales TNA T1</div>
+                  <div class="card-note-item">
+                    Gain deep insight into your natural sales strengths with
+                    this diagnostic report. Benchmark your top attributes.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/OA5L_question.png');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Should I opt for engineering?
+                  </div>
+                  <div class="card-note-item">
+                    An online test for higher school students to assess if
+                    engineering should be the choice of their study.
+                  </div>
+                  <div class="card-subscription-price">USD 15 / INR 1000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/8OFX__a31b3138-7234-4fd4-9eca-b8a2b07ecb06.jpg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    Undergraduate - Choice of Study Alignment
+                  </div>
+                  <div class="card-note-item">
+                    An online test for higher school students to assess the
+                    right choice of under graduate courses for you (30 UG
+                    streams).
+                  </div>
+                  <div class="card-subscription-price">USD 15 / INR 1000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item career">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/GXNQ_unlock.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">Career</span>
+                  <div class="card-title-item">
+                    What is the right work career for me?
+                  </div>
+                  <div class="card-note-item">
+                    By analyzing your work type personality, we offer great
+                    insights into a list of jobs, career that can suit your
+                    profile.
+                  </div>
+                  <div class="card-subscription-price">Free subscription</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-group-header">
+            <h3>C2C Book Assessments</h3>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+              <div class="scenario-card-item c2c">
+                <div
+                  class="card-image-placeholder"
+                  style="
+                    background-image: url('https://gceteam.simbcm.com/assessments/images/instance/QOYX__c81233de-b77e-466c-9d2d-48cd4a157421.jpeg');
+                  "
+                ></div>
+                <div class="card-content">
+                  <span class="card-tag">C2C Book</span>
+                  <div class="card-title-item">
+                    CS engineering - Alignment of electives, specialization &
+                    career.
+                  </div>
+                  <div class="card-note-item">
+                    The self discovery exercise facilitates CS engineering
+                    students to check the alignment to a set of specialization
+                    areas.
+                  </div>
+                  <div class="card-subscription-price">USD 15 / INR 1000</div>
+                  <a href="#" class="card-action-link">Subscribe / More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-section" id="pricing">
+        <div class="container">
+          <p>
+            We have designed package offer to suit your needs. Economical
+            pricing with annual validity. Please <a href="#pricing">CLICK</a> to
+            know more.
+          </p>
+        </div>
+      </div>
+    </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-5">
+          <div class="logo-container mb-3">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+          <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><span>f</span></a>
+            <a href="#" class="social-icon"><span>G</span></a>
+            <a href="#" class="social-icon"><span>in</span></a>
+          </div>
+        </div>
+
+        
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="war_games.html">War Games</a></li>
+            <li><a href="senario_simulator.html">Scenario Simulator</a></li>
+            <li><a href="interative_training.html">Interactive Training</a></li>
+            <li><a href="quotient_test.html">Quotient</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3 class="footer-title">About Us</h3>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing and Refund policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#terms" class="footer-link">Terms Conditions</a>
+            <span class="mx-2">|</span>
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

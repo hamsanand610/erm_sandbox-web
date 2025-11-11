@@ -1,304 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERM SANdbOX - Enhancing Skilling by Experiments</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ERM SANdbOX - Enhancing Skilling by Experiments</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header-main">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid px-4">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <div class="logo-container">
-                        <span class="logo-text-erm">ERM</span>
-                        <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
-                    </div>
-                </a>
-                
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav nav-pills-custom">
-                        <li class="nav-item">
-                            <a class="nav-link" href="2nd page.html">
-                                <span class="nav-icon">⚔️</span>
-                                <span>War Games</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scenario">
-                                <span class="nav-icon">🎯</span>
-                                <span>Scenario Simulator</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#training">
-                                <span class="nav-icon">📚</span>
-                                <span>Interactive Training</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#quotient">
-                                <span class="nav-icon">📊</span>
-                                <span>Quotient</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#resources">
-                                <span class="nav-icon">💼</span>
-                                <span>Resources</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#endorsement">
-                                <span class="nav-icon">⭐</span>
-                                <span>Endorsement</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <button class="login-btn d-none d-lg-block">
-                    <span>LOGIN</span>
-                    <i class="login-icon">→</i>
-                </button>
-            </div>
-        </nav>
-    </header>
+  <!-- ================= Header ================= -->
+  <header class="header-main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <div class="logo-container">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+        </a>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <h1 class="hero-title mb-4">SANdbOX enhances skilling by</h1>
-                    <p class="hero-tagline mb-5">Experiments | Experiencing | Doing | Mistakes in a clinical learning lab.</p>
-                    <a href="#demo" class="demo-btn">
-                        <span>Request demo</span>
-                        <i class="btn-icon">→</i>
-                    </a>
-                </div>
-                <div class="col-lg-5">
-                    <div class="d-flex flex-column align-items-end gap-3">
-                        <div class="acknowledgment mb-3">
-                            <span class="me-3">Acknowledged by</span>
-                            <div class="gartner-logo">Gartner</div>
-                        </div>
-                        <div class="award-badge">
-                            <div class="award-icon">🌐</div>
-                            <div class="award-text">BCI GLOBAL<br>AWARDS</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Topics Bar -->
-    <div class="topics-bar">
-        <div class="container">
-            <p class="mb-0">BCM/Crisis | Cyber-security | Supply chain risk | Internal audit | Project management | Upcoming(ESG & Data protection)</p>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav nav-pills-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="war_games.html"><span>War Games</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="senario_simulator.html"><span>Scenario Simulator</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interative_training.html"><span>Interactive Training</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quotient_test.html"><span>Quotient</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resources"><span>Resources</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#endorsement"><span>Endorsement</span></a>
+            </li>
+          </ul>
         </div>
+
+        <button class="login-btn d-none d-lg-block">
+          <span>LOGIN</span>
+          <i class="login-icon">→</i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <h1 class="hero-title mb-4">SANdbOX enhances skilling by</h1>
+          <p class="hero-tagline mb-5">Experiments | Experiencing | Doing | Mistakes in a clinical learning lab.</p>
+          <a href="#pricing" class="demo-btn"><span>Request demo</span><i class="btn-icon">→</i></a>
+        </div>
+        <div class="col-lg-5">
+          <div class="d-flex flex-column align-items-end gap-3">
+            <div class="acknowledgment mb-3">
+              <span class="me-3">Acknowledged by</span>
+              <div class="gartner-logo">Gartner</div>
+            </div>
+            <div class="award-badge">
+              <div class="award-icon">🌐</div>
+              <div class="award-text">BCI GLOBAL<br/>AWARDS</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- AHA Moments Section -->
-    <section class="aha-moments py-5">
-        <div class="container">
-            <h2 class="aha-title mb-5">Creating AHA!! and WOW!! moments</h2>
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-lg-4">
-                    <div class="aha-card h-100">
-                        <div class="aha-card-header">Are you a trainer?</div>
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" alt="Training session" class="aha-card-image">
-                        <div class="aha-card-content">
-                            <p>Integrate our games into your training, enhance your opportunity to win a deal and retain customers by delivering the magic.</p>
-                        </div>
-                    </div>
-                </div>
+  </section>
 
-                <!-- Card 2 -->
-                <div class="col-lg-4">
-                    <div class="aha-card h-100">
-                        <div class="aha-card-header">Incorporate games to your L&D needs</div>
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&h=300&fit=crop" alt="Chess strategy" class="aha-card-image">
-                        <div class="aha-card-content">
-                            <p>We are experts in abstract modeling. Let us have your training content, and we will convert them into high engaging games. We deliver games in DIY, team and competition mode, saving you cost & time.</p>
-                        </div>
-                    </div>
-                </div>
+  <!-- ================= Topics Bar ================= -->
+  <div class="topics-bar">
+    <div class="container">
+      <p class="mb-0">BCM/Crisis | Cyber-security | Supply chain risk | Internal audit | Project management | Upcoming (ESG & Data protection)</p>
+    </div>
+  </div>
 
-                <!-- Card 3 -->
-                <div class="col-lg-4">
-                    <div class="aha-card h-100">
-                        <div class="aha-card-header">Learn by experimenting</div>
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=300&fit=crop" alt="Team collaboration" class="aha-card-image">
-                        <div class="aha-card-content">
-                            <p>Let your teams try out all options in the gaming platform to choose the right option in real life business. We do not train but transform the minds. It can never get more motivating and engaging to learn.</p>
-                        </div>
-                    </div>
-                </div>
+  <!-- ================= AHA Moments ================= -->
+  <section class="aha-moments" id="training">
+    <div class="container">
+      <h2 class="aha-title mb-5">Creating AHA!! and WOW!! moments</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="aha-card h-100">
+            <div class="aha-card-header">Are you a trainer?</div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80" alt="Training session" class="aha-card-image">
+            <div class="aha-card-content">
+              <p>Integrate our games into your training, enhance your opportunity to win a deal and retain customers by delivering the magic.</p>
             </div>
+          </div>
         </div>
-    </section>
 
-
-   
-    <!-- Pricing Section -->
-    <section class="pricing py-5">
-        <div class="container">
-            <h2 class="section-title mb-5">PACKAGE OFFERS</h2>
-            <div class="row g-4">
-                <!-- Sales Pilot Card -->
-                <div class="col-lg-4">
-                    <div class="pricing-card h-100">
-                        <div class="card-header">
-                            <h3 class="card-title">Sales Pilot</h3>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h4 class="card-subtitle">Sales Pilot</h4>
-                            <p class="card-description">Sales Pilot</p>
-                            <a href="#" class="more-link">More</a>
-                            <h4 class="card-subtitle mt-auto">Free subscription</h4>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="subscribe-btn">Subscribe</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Subscription Card (Featured) -->
-                <div class="col-lg-4">
-                    <div class="pricing-card pricing-card-featured h-100">
-                        <div class="card-header">
-                            <h3 class="card-title">Single subscription</h3>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h4 class="card-subtitle">Start your journey with us</h4>
-                            <p class="card-description">Choose any one of our offerings. Valid for 30 days.</p>
-                            <a href="#" class="more-link">More</a>
-                            <div class="price mt-4">USD 1000</div>
-                            <p class="price-note">Base fee, all inclusive. Want more details? Drop a mail to exercise@emsandbox.com</p>
-                        </div>
-                        <div class="card-footer mt-auto">
-                            <a href="#" class="subscribe-btn">Subscribe</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Customized Subscription Card -->
-                <div class="col-lg-4">
-                    <div class="pricing-card h-100">
-                        <div class="card-header">
-                            <h3 class="card-title">Customized subscription</h3>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h4 class="card-subtitle">Awareness week, team offsite events</h4>
-                            <p class="card-description">Configure & tailor your ideas as games, simulation and engaging offerings.</p>
-                            <a href="#" class="more-link">More</a>
-                            <div class="price mt-4">USD 800</div>
-                            <p class="price-note">+ tailoring charges as applicable. Want more details? Drop a mail to exercise@emsandbox.com</p>
-                        </div>
-                        <div class="card-footer mt-auto">
-                            <a href="#" class="subscribe-btn">Subscribe</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-lg-4">
+          <div class="aha-card h-100">
+            <div class="aha-card-header">Incorporate games to your L&amp;D needs</div>
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80" alt="Chess strategy" class="aha-card-image">
+            <div class="aha-card-content">
+              <p>We are experts in abstract modeling. Let us have your training content, and we will convert them into high engaging games. We deliver games in DIY, team and competition mode, saving you cost &amp; time.</p>
             </div>
+          </div>
         </div>
-    </section>
- <!-- Announcements Section -->
-    <section class="announcements py-5">
-        <div class="container">
-            <div class="announcement-item">
-                <h3>PARTNER ANNOUNCEMENT: HER KEY</h3>
-                <p>We have partnered with HER KEY to offer our service towards empowering women in career.</p>
-            </div>
 
-            <div class="announcement-item">
-                <h3>PARTNER ANNOUNCEMENT: SKILLSDA</h3>
-                <p>We have partnered with SkillsDA, to offer Cyber Security awareness, games and certifications.</p>
+        <div class="col-lg-4">
+          <div class="aha-card h-100">
+            <div class="aha-card-header">Learn by experimenting</div>
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&q=80" alt="Team collaboration" class="aha-card-image">
+            <div class="aha-card-content">
+              <p>Let your teams try out all options in the gaming platform to choose the right option in real life business. We do not train but transform the minds.</p>
             </div>
-
-            <div class="announcement-large">
-                <h3>PROUD TO BE RECOGNIZED IN GARTNER 2021 BCM LANDSCAPE REPORT</h3>
-                <p>We are proud of returning, and repeat clients for the BCM will return when they see value of our delivery. Second, independent reviews and recognitions provide an objective assessment of what we are. Recently, SANdbOX was mentioned by Gartner in the BCM Software Vendor Landscape, under 'Education/Simulation'.</p>
-            </div>
-
-            <div class="announcement-large">
-                <h3>SIMBCM SESSION (BCI) GLOBAL EVENT</h3>
-                <h4>More than 50 participants from diverse global corporate organizations joined our SIMBCM as part of the BCI global event on May 18.</h4>
-                <p>It started with the participants being introduced to the business case on Cybercrime, Data breach and Business continuity. The participants then explored the BCM scenario at the context of the game based on global BCM standards and market best practices. SANdbOX highlighted the participants via a deep team engagement around BIA risk assessment, developing BC strategies & plans and finally the response to defend against business disruptions.</p>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer-main">
-        <div class="container">
-            <div class="row g-5 mb-5">
-                <div class="col-lg-5">
-                    <div class="logo-container mb-3">
-                        <span class="logo-text-erm">ERM</span>
-                        <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
-                    </div>
-                    <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon">
-                            <span>f</span>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <span>G</span>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <span>in</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="2nd page.html">War Games</a></li>
-                        <li><a href="#scenario">Scenario Simulator</a></li>
-                        <li><a href="#training">Interactive Training</a></li>
-                        <li><a href="#quotient">Quotient</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h3 class="footer-title">About Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#pricing">Pricing and Refund policy</a></li>
-                        <li><a href="#terms">Terms of Use</a></li>
-                        <li><a href="#privacy">Privacy</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
+  <!-- ================= Pricing ================= -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title mb-5">PACKAGE OFFERS</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="pricing-card h-100">
+            <div class="card-header"><h3 class="card-title">Sales Pilot</h3></div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-subtitle">Sales Pilot</h4>
+              <p class="card-description">Sales Pilot</p>
+              <a href="#" class="more-link">More</a>
+              <h4 class="card-subtitle mt-auto">Free subscription</h4>
             </div>
-
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <a href="#terms" class="footer-link">Terms Conditions</a>
-                        <span class="mx-2">|</span>
-                        <a href="#privacy" class="footer-link">Privacy Policy</a>
-                    </div>
-                </div>
+            <div class="card-footer">
+              <a href="#" class="subscribe-btn">Subscribe</a>
             </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        <div class="col-lg-4">
+          <div class="pricing-card pricing-card-featured h-100">
+            <div class="card-header"><h3 class="card-title">Single subscription</h3></div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-subtitle">Start your journey with us</h4>
+              <p class="card-description">Choose any one of our offerings. Valid for 30 days.</p>
+              <a href="#" class="more-link">More</a>
+              <div class="price mt-4">USD 1000</div>
+              <p class="price-note">Base fee, all inclusive. Want more details? Drop a mail to exercise@emsandbox.com</p>
+            </div>
+            <div class="card-footer mt-auto">
+              <a href="#" class="subscribe-btn">Subscribe</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="pricing-card h-100">
+            <div class="card-header"><h3 class="card-title">Customized subscription</h3></div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-subtitle">Awareness week, team offsite events</h4>
+              <p class="card-description">Configure & tailor your ideas as games, simulation and engaging offerings.</p>
+              <a href="#" class="more-link">More</a>
+              <div class="price mt-4">USD 800</div>
+              <p class="price-note">+ tailoring charges as applicable. Want more details? Drop a mail to exercise@emsandbox.com</p>
+            </div>
+            <div class="card-footer mt-auto">
+              <a href="#" class="subscribe-btn">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Announcements (UPDATED) ================= -->
+  <section class="announcements py-5">
+    <div class="container">
+
+      <!-- ANNOUNCEMENT 1: HER KEY (Text left, Image right) -->
+      <div class="announcement-row border-row">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="announcement-item no-bg">
+              <h3>PARTNER ANNOUNCEMENT: HER KEY</h3>
+              <p>We have partnered with HER KEY to offer our service towards empowering women in career.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="announcement-media justify-content-lg-end">
+              <img src="herkey.jpg" class="announcement-logo" alt="HER KEY logo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANNOUNCEMENT 2: SKILLSDA (Image left, Text right) -->
+      <div class="announcement-row border-row">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5 order-lg-1">
+            <div class="announcement-media">
+              <img src="skillsda.png" class="announcement-logo" alt="SkillsDA logo">
+            </div>
+          </div>
+          <div class="col-lg-7 order-lg-2">
+            <div class="announcement-item no-bg">
+              <h3>PARTNER ANNOUNCEMENT: SKILLSDA</h3>
+              <p>We have partnered with SkillsDA, to offer Cyber Security awareness, games and certifications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANNOUNCEMENT 3: GARTNER (Text left, Image right) -->
+      <div class="announcement-row border-row">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="announcement-large no-bg">
+              <h3>PROUD TO BE RECOGNIZED IN GARTNER 2021 BCM LANDSCAPE REPORT</h3>
+              <p>We are proud of returning, and repeat clients for the BCM will return when they see value of our delivery. Second, independent reviews and recognitions provide an objective assessment of what we are. Recently, SANdbOX was mentioned by Gartner in the BCM Software Vendor Landscape, under ‘Education/Simulation’.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="announcement-media justify-content-lg-end">
+              <img src="gartner.png" class="announcement-logo" alt="Gartner logo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANNOUNCEMENT 4: SIMBCM (Image left, Text right) -->
+      <div class="announcement-row">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5 order-lg-1">
+            <div class="announcement-media">
+              <img src="simbcm.jpg" class="announcement-photo" alt="SIMBCM global event">
+            </div>
+          </div>
+          <div class="col-lg-7 order-lg-2">
+            <div class="announcement-large no-bg">
+              <h3>SIMBCM SESSION @BCI GLOBAL EVENT</h3>
+              <h4>More than 50 participants from diverse global corporate organizations joined our SIMBCM as part of the BCI global event on May 18.</h4>
+              <p>It started with the participants being introduced to the business case on Cybercrime, Data breach and Business continuity. The participants then explored the BCM scenario at the context of the game based on global BCM standards and market best practices. SANdbOX highlighted the participants via a deep team engagement around BIA risk assessment, developing BC strategies &amp; plans and finally the response to defend against business disruptions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-5">
+          <div class="logo-container mb-3">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+          <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><span>f</span></a>
+            <a href="#" class="social-icon"><span>G</span></a>
+            <a href="#" class="social-icon"><span>in</span></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="war_games.html">War Games</a></li>
+            <li><a href="senario_simulator.html">Scenario Simulator</a></li>
+            <li><a href="interative_training.html">Interactive Training</a></li>
+            <li><a href="quotient_test.html">Quotient</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3 class="footer-title">About Us</h3>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing and Refund policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#terms" class="footer-link">Terms Conditions</a>
+            <span class="mx-2">|</span>
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
