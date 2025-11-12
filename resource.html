@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARAS - Resources</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://gceteam.simbcm.com/assets/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Colors from style.css / style2.css */
+      :root {
+        --primary-navy: #1e3a5f;
+        --primary-dark: #1a2942;
+        --primary-orange: #f59e0b;
+        --primary-orange-dark: #d97706;
+        --primary-yellow: #fbbf24;
+        --light-gray: #e5e7eb;
+        --dark-gray: #4b5563;
+        --color-light-bg: #f4f6f8;
+        --white: #fff;
+
+        /* RESOURCE CARD COLORS */
+        --card-content-bg: #3c3c3c;
+        --card-header-bg: #5a5a5a;
+        --card-tag-color: #f59e0b;
+        --resource-accent: #3b82f6; /* A clean blue for resources */
+      }
+
+      /* Global Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: var(--color-light-bg);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        color: var(--color-primary-dark);
+      }
+      section {
+        padding: 80px 0;
+      }
+
+       /* ================= Header ================= */
+.header-main {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+
+.navbar { padding: 1rem 0 }
+
+.logo-container { display: flex; flex-direction: column; line-height: 1.1 }
+
+.logo-text-erm {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.logo-text-sandbox {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text-sandbox .highlight { color: var(--primary-orange) }
+
+.nav-pills-custom { gap: .5rem }
+
+.nav-pills-custom .nav-link {
+  padding: .75rem 1.5rem;
+  border-radius: 50px;
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  font-size: 15px;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pills-custom .nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 50px;
+  transition: width .4s;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  z-index: -1;
+}
+
+.nav-pills-custom .nav-link:hover::before,
+.nav-pills-custom .nav-link.active::before {
+  width: 100%;
+}
+
+.nav-pills-custom .nav-link:hover,
+.nav-pills-custom .nav-link.active {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 18px;
+  transition: transform .3s;
+}
+
+.nav-pills-custom .nav-link:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  color: #fff;
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 4px 15px rgba(245,158,11,.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(245,158,11,.5);
+}
+
+.login-icon {
+  font-style: normal;
+  font-weight: 700;
+  transition: transform .3s;
+}
+
+.login-btn:hover .login-icon {
+  transform: translateX(5px);
+}
+      /* ================= Hero / Topic Bar ================= */
+      .hero {
+        background-color: var(--light-gray);
+        padding: 100px 0;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 60px;
+        color: var(--primary-navy);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+      .topics-bar {
+        background: var(--primary-navy);
+        color: var(--white);
+        padding: 20px 0;
+        text-align: center;
+      }
+      .topics-bar p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      /* ================= Resource Sections ================= */
+      .resource-section {
+        padding-top: 40px;
+        background: var(--light-gray);
+      }
+      .category-title {
+        font-size: 38px;
+        color: var(--primary-navy);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      .category-title::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: var(--primary-orange);
+        margin: 20px auto 0;
+      }
+
+      .resource-group-header {
+        background-color: var(--primary-navy);
+        color: var(--white);
+        padding: 20px 30px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      .resource-group-header h3 {
+        color: var(--primary-yellow);
+        margin-bottom: 5px;
+        font-size: 28px;
+      }
+
+      /* Card Style */
+      .resource-card-item {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .resource-card-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-image-placeholder {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        background-color: var(
+          --resource-accent
+        ); /* Cyan/Blue accent for Resources */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-image-placeholder i {
+        font-size: 48px;
+        color: var(--primary-navy);
+        opacity: 0.8;
+      }
+
+      .card-content {
+        padding: 15px 20px 20px;
+        flex-grow: 1;
+        background: var(--card-content-bg);
+        color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-tag {
+        font-size: 12px;
+        color: var(--card-tag-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .card-title-item {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .card-note-item {
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        flex-grow: 1;
+      }
+      .card-action-link {
+        background: var(--primary-orange);
+        color: var(--white);
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      .card-action-link:hover {
+        background: var(--primary-orange-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+           /* ================= Footer ================= */
+.footer-main {
+  background: var(--primary-navy);
+  color: #fff;
+  padding: 60px 0 30px;
+}
+
+.footer-tagline {
+  color: var(--medium-gray);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-navy);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255,255,255,.3);
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0 }
+
+.footer-links li { margin-bottom: 12px }
+
+.footer-links a {
+  color: var(--medium-gray);
+  text-decoration: none;
+  font-size: 15px;
+  transition: .3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary-orange);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 30px;
+  margin-top: 40px;
+  color: var(--medium-gray);
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--medium-gray);
+  text-decoration: none;
+  transition: color .3s;
+}
+      /* Responsive */
+      @media (max-width: 991px) {
+        .nav-pills-custom {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .nav-pills-custom .nav-link {
+          justify-content: center;
+          padding: 1rem;
+        }
+        .header-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+          margin-top: 1rem;
+        }
+        .demo-btn-top {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: center;
+        }
+        .login-btn {
+          justify-content: center;
+        }
+        .navbar-collapse {
+          margin-top: 1rem;
+        }
+        .hero-title {
+          font-size: 42px;
+        }
+        .hero-tagline {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0;
+        }
+        .hero-title {
+          font-size: 36px;
+        }
+        .hero-tagline {
+          font-size: 20px;
+        }
+        .hero-image-wrapper {
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <!-- ================= Header ================= -->
+  <header class="header-main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <div class="logo-container">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav nav-pills-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="war_games.html"><span>War Games</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="senario_simulator.html"><span>Scenario Simulator</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interative_training.html"><span>Interactive Training</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quotient_test.html"><span>Quotient</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resource.html"><span>Resources</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="endorsement.html"><span>Endorsement</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="login-btn d-none d-lg-block">
+          <span>LOGIN</span>
+          <i class="login-icon">→</i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-12 text-center">
+              <!--<h1 class="hero-title mb-4">Resources</h1>-->
+              <p class="hero-tagline mb-5" style="font-size:35px;font-style:italic;">
+                We believe that invention becomes innovation as adoption
+                increases. Our resources sections enables adoption.
+              </p>
+             <!-- <a href="#resources-list" class="demo-btn"
+                ><span>View Resources</span><i class="btn-icon">↓</i></a
+              >-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="resource-section" id="resources-list">
+        <div class="container">
+          <div class="resource-group-header">
+            <h3>Delivery model - Simulation as a service</h3>
+          </div>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-lock"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">DELIVERY MODEL</span>
+                  <div class="card-title-item">
+                    Get enterprise secured access
+                  </div>
+                  <div class="card-note-item">
+                    With the secured access code, you will have your own space
+                    to manage and enjoy the simulations. Your customizations
+                    remain with you.
+                  </div>
+                  <a href="#" class="card-action-link">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-cloud"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">DELIVERY MODEL</span>
+                  <div class="card-title-item">
+                    Hosted in secured cloud, delivering 24/7 access
+                  </div>
+                  <div class="card-note-item">
+                    All our simulations are software based and available online.
+                    Just subscribe and use as long as you want, as much as you
+                    want.
+                  </div>
+                  <a href="#" class="card-action-link">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-users"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">DELIVERY MODEL</span>
+                  <div class="card-title-item">Outsourcing to us</div>
+                  <div class="card-note-item">
+                    Our team has proven, experienced BC professionals who are
+                    subject matters. Just hire us to deliver all your
+                    simulations/ exercises.
+                  </div>
+                  <a href="#" class="card-action-link">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-sliders"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">DELIVERY MODEL</span>
+                  <div class="card-title-item">Tailor to your needs</div>
+                  <div class="card-note-item">
+                    Our SaaS allows you modify the content to reflect your
+                    preferences. We prefer to train few core team members as
+                    facilitators.
+                  </div>
+                  <a
+                    href="https://gceteam.simbcm.com/homecontent4/B12 Project management startegy game.pdf"
+                    target="_blank"
+                    class="card-action-link"
+                    >Download Resource</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-group-header">
+            <h3>Our simulation coverage - Continuity, Crisis, Resilience</h3>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-bell"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">SIMULATION COVERAGE</span>
+                  <div class="card-title-item">CRISIM - Crisis simulation</div>
+                  <div class="card-note-item">
+                    CRISIM offers a live interactive platform where teams
+                    perform different roles as part of the crisis management
+                    team. Injects arrive in mails, fb, news + live chat.
+                  </div>
+                  <a href="#" class="card-action-link">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-sitemap"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">SIMULATION COVERAGE</span>
+                  <div class="card-title-item">SIMBCM - BCM simulation</div>
+                  <div class="card-note-item">
+                    Aligned to GPG and ISO 22301, SIMBCM is a competitive game
+                    where teams design the best of BCM to save financial impact.
+                    Played as 1day/6 rounds or half day express game.
+                  </div>
+                  <a href="#" class="card-action-link">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="resource-card-item">
+                <div class="card-image-placeholder">
+                  <i class="fa fa-cube"></i>
+                </div>
+                <div class="card-content">
+                  <span class="card-tag">SIMULATION COVERAGE</span>
+                  <div class="card-title-item">Table top exercises</div>
+                  <div class="card-note-item">
+                    CRISIM can be configured to run all your table top, 24/7
+                    convenience. Just design the table top and subscribe
+                    participants/teams. They can play at their convenience.
+                  </div>
+                  <a
+                    href="https://gceteam.simbcm.com/homecontent4/_SIMBCM homepage flow 18122018.pdf"
+                    target="_blank"
+                    class="card-action-link"
+                    >Download Resource</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-section" id="pricing">
+        <div class="container">
+          <p>
+            We have designed package offer to suit your needs. Economical
+            pricing with annual validity. Please <a href="#pricing">CLICK</a> to
+            know more.
+          </p>
+        </div>
+      </div>
+    </main>
+
+ <!-- ================= Footer ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-5">
+          <div class="logo-container mb-3">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+          <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><span>f</span></a>
+            <a href="#" class="social-icon"><span>G</span></a>
+            <a href="#" class="social-icon"><span>in</span></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="war_games.html">War Games</a></li>
+            <li><a href="senario_simulator.html">Scenario Simulator</a></li>
+            <li><a href="interative_training.html">Interactive Training</a></li>
+            <li><a href="quotient_test.html">Quotient</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3 class="footer-title">About Us</h3>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing and Refund policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#terms" class="footer-link">Terms Conditions</a>
+            <span class="mx-2">|</span>
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

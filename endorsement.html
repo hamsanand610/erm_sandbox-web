@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARAS - Endorsement</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://gceteam.simbcm.com/assets/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Colors from style.css / style2.css */
+      :root {
+        --primary-navy: #1e3a5f;
+        --primary-dark: #1a2942;
+        --primary-orange: #f59e0b;
+        --primary-orange-dark: #d97706;
+        --primary-yellow: #fbbf24;
+        --light-gray: #e5e7eb;
+        --dark-gray: #4b5563;
+        --color-light-bg: #f4f6f8;
+        --white: #fff;
+
+        --card-content-bg: #3c3c3c;
+        --card-tag-color: #f59e0b;
+      }
+
+      /* Global Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: var(--color-light-bg);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        color: var(--color-primary-dark);
+      }
+      section {
+        padding: 80px 0;
+      }
+
+      /* ================= Header ================= */
+.header-main {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+
+.navbar { padding: 1rem 0 }
+
+.logo-container { display: flex; flex-direction: column; line-height: 1.1 }
+
+.logo-text-erm {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.logo-text-sandbox {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text-sandbox .highlight { color: var(--primary-orange) }
+
+.nav-pills-custom { gap: .5rem }
+
+.nav-pills-custom .nav-link {
+  padding: .75rem 1.5rem;
+  border-radius: 50px;
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  font-size: 15px;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pills-custom .nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 50px;
+  transition: width .4s;
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  z-index: -1;
+}
+
+.nav-pills-custom .nav-link:hover::before,
+.nav-pills-custom .nav-link.active::before {
+  width: 100%;
+}
+
+.nav-pills-custom .nav-link:hover,
+.nav-pills-custom .nav-link.active {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 18px;
+  transition: transform .3s;
+}
+
+.nav-pills-custom .nav-link:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+  color: #fff;
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 4px 15px rgba(245,158,11,.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(245,158,11,.5);
+}
+
+.login-icon {
+  font-style: normal;
+  font-weight: 700;
+  transition: transform .3s;
+}
+
+.login-btn:hover .login-icon {
+  transform: translateX(5px);
+}
+
+      /* ================= Hero / Topic Bar ================= */
+      .hero {
+        background-color:var(--light-gray);
+        padding: 100px 0;
+        text-align: center;
+        color: var(--white);
+      }
+      .hero-title {
+        font-size: 48px;
+        color: var(--primary-yellow);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+      .hero-tagline {
+        font-size: 20px;
+        color: #1e3a5f;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      /* ================= Endorsement Cards (Glassmorphism) ================= */
+      .endorsement-section {
+        background: var(--color-light-bg);
+        padding-top: 60px;
+      }
+
+      .endorsement-card {
+        background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Glass effect */
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+      .endorsement-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .card-header-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--primary-navy);
+        border-bottom: 3px solid var(--primary-orange);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      .card-body-text {
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--dark-gray);
+      }
+
+      /* ================= Footer ================= */
+.footer-main {
+  background: var(--primary-navy);
+  color: #fff;
+  padding: 60px 0 30px;
+}
+
+.footer-tagline {
+  color: var(--medium-gray);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-navy);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255,255,255,.3);
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0 }
+
+.footer-links li { margin-bottom: 12px }
+
+.footer-links a {
+  color: var(--medium-gray);
+  text-decoration: none;
+  font-size: 15px;
+  transition: .3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary-orange);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 30px;
+  margin-top: 40px;
+  color: var(--medium-gray);
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--medium-gray);
+  text-decoration: none;
+  transition: color .3s;
+}
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .nav-pills-custom {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .nav-pills-custom .nav-link {
+          justify-content: center;
+          padding: 1rem;
+        }
+        .header-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+          margin-top: 1rem;
+        }
+        .demo-btn-top {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          justify-content: center;
+        }
+        .login-btn {
+          justify-content: center;
+        }
+        .navbar-collapse {
+          margin-top: 1rem;
+        }
+        .hero-title {
+          font-size: 42px;
+        }
+        .hero-tagline {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0;
+        }
+        .hero-title {
+          font-size: 36px;
+        }
+        .hero-tagline {
+          font-size: 20px;
+        }
+        .endorsement-card {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+  <!-- ================= Header ================= -->
+  <header class="header-main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <div class="logo-container">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav nav-pills-custom">
+            <li class="nav-item">
+              <a class="nav-link" href="war_games.html"><span>War Games</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="senario_simulator.html"><span>Scenario Simulator</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interative_training.html"><span>Interactive Training</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quotient_test.html"><span>Quotient</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resource.html"><span>Resources</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="endorsement.html"><span>Endorsement</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="login-btn d-none d-lg-block">
+          <span>LOGIN</span>
+          <i class="login-icon">→</i>
+        </button>
+      </div>
+    </nav>
+  </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+         <!-- <h1 class="hero-title">Customer Endorsement & Success Stories</h1>-->
+          <p class="hero-tagline" style="font-size: 35px;font-style: italic;font-weight: 200;">
+            Repeat customers and references are two key drivers to our success.
+            We are humbled by the confidence bestowed on us by your customers.
+            Thank you
+          </p>
+        </div>
+      </section>
+
+      <section class="endorsement-section">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">
+                  SIMBCM @BCI world, 2019, London
+                </h4>
+                <p class="card-body-text">
+                  SIMBCM - our flagship BCM simulation game was played at the
+                  BCI world, 2019. We thank BCI for the opportunity. The
+                  simulation was well received and the session was
+                  over-subscribed. SIMBCM delivers high level of engagement in
+                  understanding all the stages of GPG.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">
+                  SIMBCM wins best innovation of 2019 from the BCI
+                </h4>
+                <p class="card-body-text">
+                  We have some great news for you. You can now use CRISIM (as a
+                  platform service) to deliver your client engagements. We will
+                  train you on the set up features and create a secured instance
+                  for your use.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">SIMBCM @BCI chapter event</h4>
+                <p class="card-body-text">
+                  6 teams from leading corporate enterprises competed at one of
+                  the BCI Chapter events in India. Team from Astra Zeneca won
+                  the competition. One BCM director commented: "one day of
+                  SIMBCM can substitute years of training" and still be more
+                  effective.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">
+                  Crisis Management Team chooses CRISIM to simulate and learn
+                </h4>
+                <p class="card-body-text">
+                  One of the leading global tier 1 travel portal choose CRISIM
+                  to engage the senior crisis leadership team. The learning and
+                  engagement was one of the best, as acknowledged by the
+                  sponsor. Participants were highly appreciative of the
+                  innovative delivery method.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">
+                  National corporate competition May 2018
+                </h4>
+                <p class="card-body-text">
+                  In May 2018, SARAS organized an all India open competition for
+                  BCM teams to participate in a National game to win the title
+                  for the year. The event was well received with active
+                  participation from number of leading corporate companies.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">
+                  Repeat customers and reference customers
+                </h4>
+                <p class="card-body-text">
+                  We are humbled by the number of repeat customers (clients come
+                  back due to value delivery) and more importantly referenced
+                  customers (to give reference needs a great amount of trust and
+                  convincing).
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex">
+              <div class="endorsement-card">
+                <h4 class="card-header-title">Verbatims - A must read</h4>
+                <p class="card-body-text">
+                  We strongly recommend you to read the attached verbatim. These
+                  are from various participants of the past simulations (SIMBCM,
+                  CRISIM, Strengths), we submit that, the participants
+                  discovered new benefits like team building.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-section" id="pricing">
+        <div class="container">
+          <p>
+            We have designed package offer to suit your needs. Economical
+            pricing with annual validity. Please <a href="#pricing">CLICK</a> to
+            know more.
+          </p>
+        </div>
+      </div>
+    </main>
+ <!-- ================= Footer ================= -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-5">
+          <div class="logo-container mb-3">
+            <span class="logo-text-erm">ERM</span>
+            <span class="logo-text-sandbox">SAN<span class="highlight">db</span>OX</span>
+          </div>
+          <p class="footer-tagline mb-4">Enhancing Skilling by experiments, experiencing, and doing.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><span>f</span></a>
+            <a href="#" class="social-icon"><span>G</span></a>
+            <a href="#" class="social-icon"><span>in</span></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="war_games.html">War Games</a></li>
+            <li><a href="senario_simulator.html">Scenario Simulator</a></li>
+            <li><a href="interative_training.html">Interactive Training</a></li>
+            <li><a href="quotient_test.html">Quotient</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h3 class="footer-title">About Us</h3>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing and Refund policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">© 2025 ERM SANdbOX. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#terms" class="footer-link">Terms Conditions</a>
+            <span class="mx-2">|</span>
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
